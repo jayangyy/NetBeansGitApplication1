@@ -47,7 +47,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
                 } else//如果验证失败
                 {
                     //返回到登录界面
-                    response.sendRedirect("Train/index");
+                    response.sendRedirect("../Train/index.do");
                     return false;
                 }
             }
