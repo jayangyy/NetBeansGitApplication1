@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Infrastructure.Aspect;
+package TestPack;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.JoinPoint;
@@ -23,13 +24,13 @@ import org.springframework.stereotype.Component;
  */
 //声明这是一个组件
 @Component
+//声明这是一个切面Bean
 @Aspect
-public class ServiceAspect {
-    private final static Log log = LogFactory.getLog(ServiceAspect.class);
+public class ServiceAspect1 {
+    private final static Log log = LogFactory.getLog(ServiceAspect1.class);
  //配置切入点,该方法无方法体,主要为方便同类中其他方法使用此处配置的切入点
 //	@Pointcut("execution(* Services..*(..))")
-//        @Pointcut("execution(* Services..*(..))")
-         @Pointcut("@annotation(Infrastructure.Logs.LogAnnotation.SysLog)")
+        @Pointcut("@annotation(Infrastructure.Logs.LogAnnotation.SysLog)")
 	public void aspect(){	}
         /*
 	 * 配置前置通知,使用在方法aspect()上注册的切入点

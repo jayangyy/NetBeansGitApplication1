@@ -18,15 +18,20 @@
         http://www.springframework.org/schema/context/spring-context-4.0.xsd   
         http://www.springframework.org/schema/mvc   
         http://www.springframework.org/schema/mvc/spring-mvc.xsd ">
+    <!-- 最重要:::如果放在spring-context.xml中，这里的aop设置将不会生效 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 	<!-- 默认的注解映射的支持 -->
 <!--开启注解 -->  
 	<mvc:annotation-driven />
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 <context:component-scan base-package="TestPack"
-		use-default-filters="false">
+		>
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
+<!--        <context:component-scan base-package="org.xdemo.example.springaop">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>-->
     <mvc:interceptors>  
     <!-- 国际化操作拦截器 如果采用基于（请求/Session/Cookie）则必需配置 --> 
 <!--    <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />  -->
@@ -38,9 +43,12 @@
         <bean class="InterceptorTest.SpringMvcInteTest"/>  
     </mvc:interceptor>  -->
 </mvc:interceptors>
+
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 <!--AOP 配置-->
-<!--<aop: aspectj-autoproxy proxy-target-class="true">-->
+<!-- 激活组件扫描功能,在包cn.ysh.studio.spring.aop及其子包下面自动扫描通过注解配置的组件 -->
+	<context:component-scan base-package="Infrastructure.Aspect"/>
+
    <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
     for the index controller we are using ParameterizableViewController, so we must
