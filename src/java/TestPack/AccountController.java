@@ -7,6 +7,7 @@ package TestPack;
 
 import Infrastructure.Aspect.Service.User;
 import Infrastructure.Aspect.Service.UserService;
+import Infrastructure.Logs.LogAnnotation.SysLog;
 import Infrastructure.web.auth.AuthPassport;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

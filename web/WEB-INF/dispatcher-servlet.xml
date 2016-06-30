@@ -29,9 +29,6 @@
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-<!--        <context:component-scan base-package="org.xdemo.example.springaop">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>-->
     <mvc:interceptors>  
     <!-- 国际化操作拦截器 如果采用基于（请求/Session/Cookie）则必需配置 --> 
 <!--    <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />  -->
@@ -48,7 +45,7 @@
 <!--AOP 配置-->
 <!-- 激活组件扫描功能,在包cn.ysh.studio.spring.aop及其子包下面自动扫描通过注解配置的组件 -->
 	<context:component-scan base-package="Infrastructure.Aspect"/>
-
+	<context:component-scan base-package="Services"/>
    <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
     for the index controller we are using ParameterizableViewController, so we must

@@ -29,6 +29,7 @@ public class TestController {
     private final static Log log = LogFactory.getLog(TestController.class);
 
 // 
+    @SysLog(IsRecord = true)
     @RequestMapping(value = {"/index.do"}, method = {RequestMethod.GET})
     public ModelAndView GetProjects() {
         ModelAndView modelAndView = new ModelAndView();
@@ -47,12 +48,15 @@ public class TestController {
 		User user = service.get(1L);
 		service.save(user);
 		try {
+                 
 			service.delete(1L);
+                        throw new Exception("ddddd");
 		} catch (Exception e) {
 			if(log.isWarnEnabled()){
 				log.warn("Delete user : " + e.getMessage());
 			}
 		}
+              
         return new ModelAndView("/Hello", map);
     }
 }

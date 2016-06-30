@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
  * @author Shenghany
  * @date 2013-5-28
  */
-@Service
 public class UserService {
 
 	private final static Log log = LogFactory.getLog(UserService.class);

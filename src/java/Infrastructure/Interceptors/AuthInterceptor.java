@@ -20,7 +20,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
     }
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
         response.getWriter().print("权限验证拦截器");
         ///注解在类上面
         AuthPassport[] AuthinTypes = ((HandlerMethod) handler).getBean().getClass().getAnnotationsByType(AuthPassport.class);

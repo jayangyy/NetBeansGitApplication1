@@ -76,7 +76,7 @@ public class ServiceAspect {
 	@AfterThrowing(pointcut="aspect()", throwing="ex")
 	public void afterThrow(JoinPoint joinPoint, Exception ex){
 		if(log.isInfoEnabled()){
-			log.info("afterThrow " + joinPoint + "\t" + ex.getMessage());
+			log.error("afterThrow " + joinPoint + "\t" + ex.getMessage());
 		}
 	}
 }
